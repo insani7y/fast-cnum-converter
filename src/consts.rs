@@ -3,7 +3,7 @@ pub static CNUMA_POSSIBLE_SYMBOLS: [char; 36] = [
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
     'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
 ];
-pub static BANNED_SYMBOLS: &str = "IO";
+pub static BANNED_SYMBOLS: [char; 2] = ['I', 'O'];
 pub static BASE_OF_CNUMA_NOTATION: i64 = 36;
 pub static FIRST_6_DIGITS_NUMBER: i64 = 100_000;
 pub static SIX_DIGITS_CNUM_MAX: i64 = 999_999;

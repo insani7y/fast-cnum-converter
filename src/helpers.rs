@@ -39,20 +39,12 @@ pub fn convert_str_to_int(some_string: &str) -> FastCnumConverterResult<i64> {
 
 #[allow(clippy::missing_errors_doc)]
 pub fn validate_banned_symbols(maybe_cnum_symbols: &str) -> FastCnumConverterResult<()> {
-    let current_symbols: HashSet<char> = BANNED_SYMBOLS.chars().collect();
-    let banned_symbols: HashSet<char> = maybe_cnum_symbols.chars().collect();
-    let intersecion: Vec<String> = current_symbols
-        .intersection(&banned_symbols)
-        .copied()
-        .map(|c| c.to_string())
-        .collect();
-
-    if intersecion.is_empty() {
-        Ok(())
-    } else {
-        let found_banned_symbols_string = intersecion.join(", ");
-        Err(BannedSymbolsInAlphaNumericCNUMError::new_err((format!(
-            "CNUM {maybe_cnum_symbols} contains banned symbols: {found_banned_symbols_string}"
-        ),)))
+    for cnum_symbol in maybe_cnum_symbols.chars() {
+        if BANNED_SYMBOLS.contains(&cnum_symbol) {
+            return Err(BannedSymbolsInAlphaNumericCNUMError::new_err((format!(
+                "CNUM {maybe_cnum_symbols} contains banned symbols: {cnum_symbol}"
+            ),)));
+        }
     }
+    Ok(())
 }

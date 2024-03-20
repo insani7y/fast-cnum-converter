@@ -112,15 +112,16 @@ pub fn convert_cnum_to_numeric(
             return Ok(numeric_cnum);
         }
 
-        if check_banned_symbols.unwrap_or(false) {
-            validate_banned_symbols(&string_cnum)?;
-        }
-
         if !check_str_is_in_cnum_format(&string_cnum) {
             return Err(NotInAlphaNumericCNUMFormatError::new_err((
                 "Sorry, your input string is not CNUM according to our symbols map.",
             )));
         }
+
+        if check_banned_symbols.unwrap_or(false) {
+            validate_banned_symbols(&string_cnum)?;
+        }
+
         let (first_char, remainder) = string_cnum.split_at(1);
         if first_char.is_ascii() && remainder.chars().all(char::is_numeric) {
             let remainder_value: i64 = remainder.parse()?;
