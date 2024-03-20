@@ -1,10 +1,10 @@
 # Fast cnum converter
 
-This a faster version of original cnum-converter that uses rust internally.
+This a faster version of original cnum-converter, due to internal rust usage.
 
 ## Benchmarks
 
-Here's some benchmarks that prove: rust usage leads to a higher performance.  
+Here's some benchmarks to prove: rust usage leads to a higher performance.  
 We are testing:
 
 - convert_cnum_to_alpha with str passed in
