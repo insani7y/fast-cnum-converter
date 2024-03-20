@@ -1,2 +1,11 @@
-## !! Could not determine repository location
--e /Users/mihailgurbanov/Desktop/Code/python/fast-cnum-converter
+cfgv==3.4.0
+distlib==0.3.8
+filelock==3.13.1
+identify==2.5.35
+maturin==1.5.0
+nodeenv==1.8.0
+platformdirs==4.2.0
+pre-commit==3.5.0
+PyYAML==6.0.1
+tomli==2.0.1
+virtualenv==20.25.1
