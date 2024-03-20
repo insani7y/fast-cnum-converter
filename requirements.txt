@@ -1,0 +1,2 @@
+## !! Could not determine repository location
+-e /Users/mihailgurbanov/Desktop/Code/python/fast-cnum-converter

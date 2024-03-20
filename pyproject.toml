@@ -1,0 +1,79 @@
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "fast-cnum-converter"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = ["version"]
+authors = [{ email = "Mikhail.GURBANOV@raiffeisen.ru" }, { name = "Gurbanov Mikhail" }]
+[tool.maturin]
+python-source = "python"
+module-name = "fast_cnum_converter._internal"
+features = ["pyo3/extension-module"]
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+allow_subclassing_any = true
+allow_untyped_calls = true
+pretty = true
+show_error_codes = true
+implicit_reexport = true
+allow_untyped_decorators = true
+warn_unused_ignores = false
+warn_return_any = false
+namespace_packages = true
+disable_error_code = "attr-defined,valid-type"
+exclude = ["clients/database/migrations/versions/"]
+
+[tool.ruff]
+fix = true
+unsafe-fixes = true
+line-length = 120
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "EM",
+    "FBT",
+    "TRY003",
+    "D1",
+    "D203",
+    "D213",
+    "G004",
+    "FA",
+    "ANN101",
+    "ANN102",
+    "PYI021",
+]
+
+[tool.ruff.lint.isort]
+no-lines-before = ["standard-library", "local-folder"]
+known-third-party = []
+known-local-folder = []
+lines-after-imports = 2
+known-first-party = ["fast_cnum_converter"]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/*.py" = ["S101", "S311"]
+
+[tool.coverage.report]
+exclude_also = ["if typing.TYPE_CHECKING:"]
+show_missing = true
+sort = "-Cover"
+
+[tool.coverage.run]
+parallel = true
+concurrency = ["thread", "gevent", "multiprocessing"]
+
+[tool.coverage.html]
+skip_covered = true
