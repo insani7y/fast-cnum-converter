@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 use crate::{
     consts::{BANNED_SYMBOLS, CNUMA_POSSIBLE_SYMBOLS, CNUM_LENGTH},
     python_exceptions::{
