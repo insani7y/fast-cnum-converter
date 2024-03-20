@@ -11,7 +11,7 @@ We are testing:
 - convert_cnum_to_alpha with int passed in
 - convert_cnum_to_numeric with str passed in
 
-Benchmarking time usage per 1_000_000 operations in seconds, so, lower bar value - better.
+Benchmarking time usage per 1_000_000 operations in seconds, so, `lower bar value - better`.
 
 [![benchmark image](https://i.postimg.cc/Gt21qDw9/plot.png)](https://postimg.cc/KkdVYRYy)
 
