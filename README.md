@@ -13,7 +13,7 @@ We are testing:
 
 Benchmarking time usage per 1_000_000 operations in seconds, so, lower bar value - better.
 
-![image info](plot.png)
+[![benchmark image](https://i.postimg.cc/Gt21qDw9/plot.png)](https://postimg.cc/KkdVYRYy)
 
 As you can see - rust beats python on every test.  
 You can find all benchmarks in `benchmarks` directory and test it yourself.
