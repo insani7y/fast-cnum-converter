@@ -11,11 +11,16 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dynamic = ["version"]
-authors = [{ email = "Mikhail.GURBANOV@raiffeisen.ru" }, { name = "Gurbanov Mikhail" }]
+authors = [{ email = "my.gurbanov@gmail.com" }, { name = "Gurbanov Mikhail" }]
 [tool.maturin]
 python-source = "python"
 module-name = "fast_cnum_converter._internal"
 features = ["pyo3/extension-module"]
+
+[project.urls]
+homepage = "https://github.com/insani7y/fast-cnum-converter"
+repository = "https://github.com/insani7y/fast-cnum-converter"
+documentation = "https://github.com/insani7y/fast-cnum-converter/blob/main/README.md"
 
 [tool.mypy]
 strict = true
