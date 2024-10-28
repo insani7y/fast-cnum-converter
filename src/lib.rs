@@ -71,8 +71,9 @@ fn inner_convert_cnum_to_alpha(
 
 #[pyfunction]
 #[allow(clippy::missing_errors_doc)]
+#[pyo3(signature = (source_maybe_cnum, check_banned_symbols=None))]
 pub fn convert_cnum_to_alpha(
-    source_maybe_cnum: &PyAny,
+    source_maybe_cnum: &Bound<PyAny>,
     check_banned_symbols: Option<bool>,
 ) -> FastCnumConverterResult<String> {
     let is_check_banned_symbols = check_banned_symbols.unwrap_or(false);
@@ -102,8 +103,9 @@ pub fn convert_cnum_to_alpha(
     clippy::cast_sign_loss,
     clippy::cast_possible_wrap
 )]
+#[pyo3(signature = (source_maybe_cnum, check_banned_symbols=None))]
 pub fn convert_cnum_to_numeric(
-    source_maybe_cnum: &PyAny,
+    source_maybe_cnum: &Bound<PyAny>,
     check_banned_symbols: Option<bool>,
 ) -> FastCnumConverterResult<i64> {
     if source_maybe_cnum.is_instance_of::<PyString>() {
@@ -149,7 +151,7 @@ pub fn convert_cnum_to_numeric(
 /// A Python module implemented in Rust.
 #[pymodule]
 #[pyo3(name = "_internal")]
-fn fast_cnum_converter(py: Python, m: &PyModule) -> PyResult<()> {
+fn fast_cnum_converter(py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
     add_module(py, m, "exceptions", exceptions_module)?;
     m.add_function(wrap_pyfunction!(convert_cnum_to_alpha, m)?)?;
     m.add_function(wrap_pyfunction!(convert_cnum_to_numeric, m)?)?;
