@@ -4,11 +4,19 @@ build-backend = "maturin"
 
 [project]
 name = "fast-cnum-converter"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 dynamic = ["version"]
 authors = [{ email = "my.gurbanov@gmail.com" }, { name = "Gurbanov Mikhail" }]
@@ -59,6 +67,7 @@ ignore = [
     "ANN101",
     "ANN102",
     "PYI021",
+    "S101",
 ]
 
 [tool.ruff.lint.isort]

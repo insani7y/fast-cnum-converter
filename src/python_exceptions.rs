@@ -1,4 +1,8 @@
-use pyo3::{create_exception, pymodule, types::PyModule, PyErr, PyResult, Python};
+use pyo3::{
+    create_exception,
+    types::{PyModule, PyModuleMethods},
+    Bound, PyErr, PyResult, Python,
+};
 
 pub type FastCnumConverterResult<T> = Result<T, PyErr>;
 
@@ -33,30 +37,27 @@ create_exception!(
     CnumConverterError
 );
 
-#[pymodule]
-#[pyo3(name = "exceptions")]
 #[allow(clippy::missing_errors_doc)]
-pub fn exceptions_module(py: Python, m: &PyModule) -> PyResult<()> {
-    m.add("CnumConverterError", py.get_type::<CnumConverterError>())?;
+pub fn exceptions_module(py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add(
-        "ConvertStrToIntCNUMError",
-        py.get_type::<ConvertStrToIntCNUMError>(),
+        "CnumConverterError",
+        py.get_type_bound::<CnumConverterError>(),
     )?;
     m.add(
         "OverflowNumericCNUMError",
-        py.get_type::<OverflowNumericCNUMError>(),
+        py.get_type_bound::<OverflowNumericCNUMError>(),
     )?;
     m.add(
         "NonPositiveNumericCNUMError",
-        py.get_type::<NonPositiveNumericCNUMError>(),
+        py.get_type_bound::<NonPositiveNumericCNUMError>(),
     )?;
     m.add(
         "NotInAlphaNumericCNUMFormatError",
-        py.get_type::<NotInAlphaNumericCNUMFormatError>(),
+        py.get_type_bound::<NotInAlphaNumericCNUMFormatError>(),
     )?;
     m.add(
         "BannedSymbolsInAlphaNumericCNUMError",
-        py.get_type::<BannedSymbolsInAlphaNumericCNUMError>(),
+        py.get_type_bound::<BannedSymbolsInAlphaNumericCNUMError>(),
     )?;
     Ok(())
 }
