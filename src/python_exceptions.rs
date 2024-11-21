@@ -44,6 +44,10 @@ pub fn exceptions_module(py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
         py.get_type_bound::<CnumConverterError>(),
     )?;
     m.add(
+        "ConvertStrToIntCNUMError",
+        py.get_type_bound::<ConvertStrToIntCNUMError>(),
+    )?;
+    m.add(
         "OverflowNumericCNUMError",
         py.get_type_bound::<OverflowNumericCNUMError>(),
     )?;
