@@ -39,10 +39,7 @@ create_exception!(
 
 #[allow(clippy::missing_errors_doc)]
 pub fn exceptions_module(py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
-    m.add(
-        "CnumConverterError",
-        py.get_type::<CnumConverterError>(),
-    )?;
+    m.add("CnumConverterError", py.get_type::<CnumConverterError>())?;
     m.add(
         "ConvertStrToIntCNUMError",
         py.get_type::<ConvertStrToIntCNUMError>(),
