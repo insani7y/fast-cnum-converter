@@ -41,27 +41,27 @@ create_exception!(
 pub fn exceptions_module(py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add(
         "CnumConverterError",
-        py.get_type_bound::<CnumConverterError>(),
+        py.get_type::<CnumConverterError>(),
     )?;
     m.add(
         "ConvertStrToIntCNUMError",
-        py.get_type_bound::<ConvertStrToIntCNUMError>(),
+        py.get_type::<ConvertStrToIntCNUMError>(),
     )?;
     m.add(
         "OverflowNumericCNUMError",
-        py.get_type_bound::<OverflowNumericCNUMError>(),
+        py.get_type::<OverflowNumericCNUMError>(),
     )?;
     m.add(
         "NonPositiveNumericCNUMError",
-        py.get_type_bound::<NonPositiveNumericCNUMError>(),
+        py.get_type::<NonPositiveNumericCNUMError>(),
     )?;
     m.add(
         "NotInAlphaNumericCNUMFormatError",
-        py.get_type_bound::<NotInAlphaNumericCNUMFormatError>(),
+        py.get_type::<NotInAlphaNumericCNUMFormatError>(),
     )?;
     m.add(
         "BannedSymbolsInAlphaNumericCNUMError",
-        py.get_type_bound::<BannedSymbolsInAlphaNumericCNUMError>(),
+        py.get_type::<BannedSymbolsInAlphaNumericCNUMError>(),
     )?;
     Ok(())
 }
