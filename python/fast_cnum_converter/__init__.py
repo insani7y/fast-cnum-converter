@@ -1,3 +1,4 @@
+from . import exceptions
 from ._internal import (
     convert_cnum_to_alpha,
     convert_cnum_to_numeric,
@@ -7,4 +8,5 @@ from ._internal import (
 __all__ = [
     "convert_cnum_to_alpha",
     "convert_cnum_to_numeric",
+    "exceptions",
 ]
